@@ -1,8 +1,8 @@
-from mcp.server import Server
+from mcp.server.fastmcp import FastMCP
 from client import tunnel_client
 
 
-def register(app: Server):
+def register(app: FastMCP):
     @app.tool()
     async def get_dashboard_summary() -> dict:
         """Compteurs globaux du tableau de bord — interventions ouvertes, urgentes, stock critique, etc."""
