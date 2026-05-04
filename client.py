@@ -25,6 +25,22 @@ class TunnelClient:
             )
         return response.json()
 
+    async def post(self, path: str, body: dict) -> dict:
+        response = await self._client.post(path, json=body)
+        if response.status_code >= 400:
+            raise RuntimeError(
+                f"API error {response.status_code} on POST {path}: {response.text}"
+            )
+        return response.json()
+
+    async def patch(self, path: str, body: dict) -> dict:
+        response = await self._client.patch(path, json=body)
+        if response.status_code >= 400:
+            raise RuntimeError(
+                f"API error {response.status_code} on PATCH {path}: {response.text}"
+            )
+        return response.json()
+
     async def aclose(self):
         await self._client.aclose()
 
