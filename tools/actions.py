@@ -11,8 +11,9 @@ def register(app: FastMCP):
         tech_id: Optional[str] = None,
     ) -> list:
         """Liste les actions groupées par date, du plus récent au plus ancien.
-        Sans paramètre : actions du jour uniquement.
-        start_date / end_date au format YYYY-MM-DD.
+        Sans paramètre : retourne uniquement les actions du jour.
+        Toujours préciser start_date et end_date (format YYYY-MM-DD) pour couvrir
+        la plage pertinente selon le contexte de la demande.
         tech_id : UUID du technicien pour filtrer ses actions."""
         params = {}
         if start_date:
