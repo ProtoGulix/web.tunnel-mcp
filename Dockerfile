@@ -10,6 +10,6 @@ COPY . .
 ENV MCP_TRANSPORT=sse
 ENV MCP_SSE_PORT=8001
 
-EXPOSE 8001
+EXPOSE ${MCP_SSE_PORT}
 
 CMD ["python", "server.py"]
