@@ -13,7 +13,7 @@ class TunnelClient:
         self._base_url = _BASE_URL.rstrip("/")
         self._client = httpx.AsyncClient(
             base_url=self._base_url,
-            headers={"Authorization": f"Bearer {_TOKEN}"},
+            headers={"X-API-Key": _TOKEN},
             timeout=15.0,
         )
 
