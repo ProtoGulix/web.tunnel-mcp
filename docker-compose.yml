@@ -2,10 +2,10 @@ services:
   tunnel-mcp:
     build: .
     ports:
-      - "8001:8001"
+      - "${MCP_SSE_PORT:-8001}:${MCP_SSE_PORT:-8001}"
     environment:
       - TUNNEL_API_TOKEN=${TUNNEL_API_TOKEN}
       - TUNNEL_API_BASE_URL=${TUNNEL_API_BASE_URL:-http://localhost:8000}
-      - MCP_TRANSPORT=sse
-      - MCP_SSE_PORT=8001
+      - MCP_TRANSPORT=${MCP_TRANSPORT:-sse}
+      - MCP_SSE_PORT=${MCP_SSE_PORT:-8001}
     restart: unless-stopped
